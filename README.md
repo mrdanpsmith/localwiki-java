@@ -1,4 +1,4 @@
 localwiki-java
 ==============
 
-Embedded server component for localwiki.
+Java embedded server for localwiki.

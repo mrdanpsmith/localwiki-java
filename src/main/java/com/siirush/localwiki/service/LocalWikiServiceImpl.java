@@ -5,17 +5,21 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.util.List;
 
 import javax.inject.Inject;
 
 import com.siirush.localwiki.binding.annotation.Encoding;
+import com.siirush.localwiki.search.SearchEngine;
 
 public class LocalWikiServiceImpl implements LocalWikiService {
 	private final String encoding;
+	private final SearchEngine searchEngine;
 	
 	@Inject
-	public LocalWikiServiceImpl(@Encoding String encoding) {
+	public LocalWikiServiceImpl(@Encoding String encoding, SearchEngine searchEngine) {
 		this.encoding = encoding;
+		this.searchEngine = searchEngine;
 	}
 	
 	public String getVersion() {
@@ -23,8 +27,6 @@ public class LocalWikiServiceImpl implements LocalWikiService {
 	}
 	
 	public void save(String filename, String content) {
-		System.out.println(filename);
-		System.out.println(content);
 		Writer writer;
 		try {
 			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filename), encoding));
@@ -33,5 +35,9 @@ public class LocalWikiServiceImpl implements LocalWikiService {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	public List<String> search(String query) {
+		return searchEngine.search(query);
 	}
 }
