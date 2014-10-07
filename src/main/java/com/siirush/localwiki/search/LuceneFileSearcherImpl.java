@@ -12,8 +12,8 @@ import org.apache.lucene.analysis.core.SimpleAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
 import org.apache.lucene.queryparser.classic.ParseException;
-import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
@@ -36,14 +36,12 @@ public class LuceneFileSearcherImpl implements LuceneSearcher {
 			
 			TopScoreDocCollector collector = TopScoreDocCollector.create(1000, true);
 			
-			Query q = new QueryParser("filename", new SimpleAnalyzer()).parse(query);
+			if (!query.contains("*")) {
+				query += "*";
+			}
 			
-			/*BooleanQuery q = new BooleanQuery();
-			Query filenameQuery = new TermQuery(new Term("filename", query));
-			Query contentQuery = new TermQuery(new Term("content", query));
-			q.add(filenameQuery, BooleanClause.Occur.SHOULD);
-			q.add(contentQuery, BooleanClause.Occur.SHOULD);
-			*/
+			Query q = MultiFieldQueryParser.parse(new String[] { query, query }, new String[] { "filename", "content" }, new SimpleAnalyzer());
+			
 			searcher.search(q, collector);
 
 			ScoreDoc[] hits = collector.topDocs().scoreDocs;

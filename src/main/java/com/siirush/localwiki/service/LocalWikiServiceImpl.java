@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -22,8 +23,8 @@ public class LocalWikiServiceImpl implements LocalWikiService {
 		this.searchEngine = searchEngine;
 	}
 	
-	public String getVersion() {
-		return "1.0";
+	public List<String> getSupport() {
+		return Arrays.asList(new String[] { "save", "search" });
 	}
 	
 	public void save(String filename, String content) {

@@ -15,7 +15,6 @@ import org.apache.lucene.document.Field;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
-import org.apache.lucene.index.IndexableField;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.util.Version;
@@ -88,7 +87,7 @@ public class InMemoryLuceneFileCrawlerImpl implements LuceneFileCrawler {
 		}
 	}
 
-	private Iterable<? extends IndexableField> document(File file) throws IOException {
+	private Document document(File file) throws IOException {
 		Document doc = new Document();
 		doc.add(new TextField("filename", getFilename(file), Field.Store.YES));
 		doc.add(new TextField("content", getContent(file), Field.Store.YES));

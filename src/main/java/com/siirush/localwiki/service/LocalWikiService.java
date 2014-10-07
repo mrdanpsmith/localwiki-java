@@ -16,8 +16,8 @@ import javax.ws.rs.core.MediaType;
 public interface LocalWikiService {
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
-	@Path("/version")
-	String getVersion();
+	@Path("/support")
+	List<String> getSupport();
 	
 	@POST
 	@Produces({MediaType.APPLICATION_JSON})
