@@ -14,6 +14,7 @@ public class MainModule extends AbstractModule {
 	protected void configure() {
 		install(new ServletModule());
 		install(new SearchModule());
+		install(new DetectionModule());
 		bind(String.class).annotatedWith(Encoding.class).toInstance("UTF-8");
 		bind(Integer.class).annotatedWith(Port.class).toInstance(Integer.valueOf(8080));
 		bind(StringUtil.class).to(StringUtilImpl.class);
