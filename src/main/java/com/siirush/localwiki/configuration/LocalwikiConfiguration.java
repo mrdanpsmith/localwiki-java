@@ -1,8 +1,8 @@
 package com.siirush.localwiki.configuration;
 
 public class LocalwikiConfiguration {
-	private Path path;
-	private Server server;
+	private Path path = new Path();
+	private Server server = new Server();
 	
 	public Path getPath() {
 		return path;
@@ -19,6 +19,7 @@ public class LocalwikiConfiguration {
 	
 	public static class Path {
 		private String baseDir;
+		private String errorDir;
 		private String apiDir;
 		
 		public String getBaseDir() {
@@ -32,6 +33,12 @@ public class LocalwikiConfiguration {
 		}
 		public void setApiDir(String apiDir) {
 			this.apiDir = apiDir;
+		}
+		public String getErrorDir() {
+			return errorDir;
+		}
+		public void setErrorDir(String errorDir) {
+			this.errorDir = errorDir;
 		}
 	}
 	

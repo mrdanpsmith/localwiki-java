@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.siirush.detect.model.Feature;
 
-@Path("/support")
+@Path("/")
 public interface DetectionService {	
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
