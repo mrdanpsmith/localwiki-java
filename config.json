@@ -1,0 +1,22 @@
+{
+	"path": {
+		"baseDir": ".",
+		"errorDir": "error",
+		"apiDir": "api"
+	},
+	"server": {
+		"port": 8080
+	},
+	"page": {
+		"home": "README.md",
+		"error": "error.md"
+	},
+	"expression": {
+		"marker": "$",
+		"ignoreCase": false
+	},
+	"parser": {
+		"doNotHandleClass": "do-not-override"
+	},
+	"title": "localwiki: $pageName"
+}

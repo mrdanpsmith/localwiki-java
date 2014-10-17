@@ -1,4 +1,4 @@
-package com.siirush.localwiki.binding.annotation;
+package com.siirush.localwiki.configuration.binding.annotation;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
@@ -11,4 +11,4 @@ import java.lang.annotation.Target;
 import com.google.inject.BindingAnnotation;
 
 @BindingAnnotation @Target({ FIELD, PARAMETER, METHOD }) @Retention(RUNTIME)
-public @interface Port {}
+public @interface ConfigurationFilePath {}
