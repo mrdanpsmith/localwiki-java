@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import com.siirush.detect.model.Support;
+import com.siirush.detect.annotation.Support;
 import com.siirush.localwiki.search.SearchEngine;
 
 public class SearchServiceImpl implements SearchService {

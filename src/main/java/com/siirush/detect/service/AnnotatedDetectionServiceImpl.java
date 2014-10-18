@@ -7,8 +7,8 @@ import java.util.Set;
 import org.reflections.Reflections;
 
 import com.google.inject.Inject;
+import com.siirush.detect.annotation.Support;
 import com.siirush.detect.model.Feature;
-import com.siirush.detect.model.Support;
 
 public class AnnotatedDetectionServiceImpl implements DetectionService {
 	private final Reflections reflections;

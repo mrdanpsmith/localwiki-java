@@ -1,4 +1,4 @@
-package com.siirush.detect.model;
+package com.siirush.detect.annotation;
 
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;

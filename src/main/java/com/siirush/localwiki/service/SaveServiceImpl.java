@@ -9,7 +9,7 @@ import java.io.Writer;
 
 import javax.inject.Inject;
 
-import com.siirush.detect.model.Support;
+import com.siirush.detect.annotation.Support;
 import com.siirush.localwiki.binding.annotation.Encoding;
 import com.siirush.localwiki.configuration.LocalwikiConfiguration;
 
