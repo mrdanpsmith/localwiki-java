@@ -23,7 +23,6 @@ public class LuceneSearchEngineImpl implements SearchEngine {
 	}
 
 	public List<String> search(String query) {
-		index();
 		return searchProvider.get().search(index,query);
 	}
 }

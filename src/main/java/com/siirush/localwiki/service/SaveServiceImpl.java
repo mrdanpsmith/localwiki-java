@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import com.siirush.detect.annotation.Support;
 import com.siirush.localwiki.binding.annotation.Encoding;
 import com.siirush.localwiki.configuration.LocalwikiConfiguration;
+import com.siirush.localwiki.search.annotation.IndexAfter;
 
 public class SaveServiceImpl implements SaveService {
 	private final String encoding;
@@ -23,6 +24,7 @@ public class SaveServiceImpl implements SaveService {
 		this.config = config;
 	}
 	
+	@IndexAfter
 	@Support(version = "0.1")
 	public void save(String filename, String content) {
 		try {

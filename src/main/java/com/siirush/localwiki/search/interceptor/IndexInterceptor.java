@@ -8,12 +8,8 @@ import org.aopalliance.intercept.MethodInvocation;
 import com.siirush.localwiki.search.SearchEngine;
 
 public class IndexInterceptor implements MethodInterceptor {
-	private final SearchEngine searchEngine;
-	
 	@Inject
-	public IndexInterceptor(SearchEngine searchEngine) {
-		this.searchEngine = searchEngine;
-	}
+	private SearchEngine searchEngine;
 	
 	public Object invoke(MethodInvocation invocation) throws Throwable {
 		Throwable thrown = null;
