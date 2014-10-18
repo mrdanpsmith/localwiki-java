@@ -10,12 +10,12 @@ import org.apache.lucene.store.Directory;
 public class LuceneSearchEngineImpl implements SearchEngine {
 	private Directory index;
 	private final Provider<LuceneFileCrawler> crawlerProvider;
-	private final Provider<LuceneSearcher> searchProvider;
+	private final LuceneSearcher searcher;
 	
 	@Inject
-	public LuceneSearchEngineImpl(Provider<LuceneFileCrawler> crawlerProvider, Provider<LuceneSearcher> searchProvider) {
+	public LuceneSearchEngineImpl(Provider<LuceneFileCrawler> crawlerProvider, LuceneSearcher searcher) {
 		this.crawlerProvider = crawlerProvider;
-		this.searchProvider = searchProvider;
+		this.searcher = searcher;
 	}
 	
 	public void index() {
@@ -23,6 +23,6 @@ public class LuceneSearchEngineImpl implements SearchEngine {
 	}
 
 	public List<String> search(String query) {
-		return searchProvider.get().search(index,query);
+		return searcher.search(index,query);
 	}
 }
