@@ -1,4 +1,4 @@
-package com.siirush.localwiki.search;
+package com.siirush.localwiki.search.crawler;
 
 import java.io.File;
 import java.io.FilenameFilter;

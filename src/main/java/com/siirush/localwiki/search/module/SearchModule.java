@@ -2,13 +2,13 @@ package com.siirush.localwiki.search.module;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.matcher.Matchers;
-import com.siirush.localwiki.search.InMemoryLuceneFileCrawlerImpl;
-import com.siirush.localwiki.search.LuceneFileCrawler;
 import com.siirush.localwiki.search.LuceneFileSearcherImpl;
 import com.siirush.localwiki.search.LuceneSearchEngineImpl;
 import com.siirush.localwiki.search.LuceneSearcher;
 import com.siirush.localwiki.search.SearchEngine;
 import com.siirush.localwiki.search.annotation.IndexAfter;
+import com.siirush.localwiki.search.crawler.InMemoryLuceneFileCrawlerImpl;
+import com.siirush.localwiki.search.crawler.LuceneFileCrawler;
 import com.siirush.localwiki.search.interceptor.IndexInterceptor;
 
 public class SearchModule extends AbstractModule {

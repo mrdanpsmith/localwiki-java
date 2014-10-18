@@ -7,6 +7,8 @@ import javax.inject.Provider;
 
 import org.apache.lucene.store.Directory;
 
+import com.siirush.localwiki.search.crawler.LuceneFileCrawler;
+
 public class LuceneSearchEngineImpl implements SearchEngine {
 	private Directory index;
 	private final Provider<LuceneFileCrawler> crawlerProvider;
