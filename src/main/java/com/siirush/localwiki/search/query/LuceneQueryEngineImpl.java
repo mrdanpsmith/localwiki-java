@@ -1,4 +1,4 @@
-package com.siirush.localwiki.search;
+package com.siirush.localwiki.search.query;
 
 import java.util.List;
 
@@ -7,15 +7,16 @@ import javax.inject.Provider;
 
 import org.apache.lucene.store.Directory;
 
+import com.siirush.localwiki.search.SearchEngine;
 import com.siirush.localwiki.search.crawler.LuceneFileCrawler;
 
-public class LuceneSearchEngineImpl implements SearchEngine {
+public class LuceneQueryEngineImpl implements SearchEngine {
 	private Directory index;
 	private final Provider<LuceneFileCrawler> crawlerProvider;
-	private final LuceneSearcher searcher;
+	private final LuceneQueryEngine searcher;
 	
 	@Inject
-	public LuceneSearchEngineImpl(Provider<LuceneFileCrawler> crawlerProvider, LuceneSearcher searcher) {
+	public LuceneQueryEngineImpl(Provider<LuceneFileCrawler> crawlerProvider, LuceneQueryEngine searcher) {
 		this.crawlerProvider = crawlerProvider;
 		this.searcher = searcher;
 	}

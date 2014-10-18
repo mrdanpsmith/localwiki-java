@@ -20,7 +20,9 @@ import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopScoreDocCollector;
 import org.apache.lucene.store.Directory;
 
-public class LuceneFileSearcherImpl implements LuceneSearcher {
+import com.siirush.localwiki.search.query.LuceneQueryEngine;
+
+public class LuceneFileSearcherImpl implements LuceneQueryEngine {
 	private final Logger logger;
 	
 	@Inject
