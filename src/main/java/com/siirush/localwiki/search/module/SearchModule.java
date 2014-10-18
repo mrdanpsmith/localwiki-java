@@ -1,4 +1,4 @@
-package com.siirush.localwiki.module;
+package com.siirush.localwiki.search.module;
 
 import com.google.inject.AbstractModule;
 import com.siirush.localwiki.search.InMemoryLuceneFileCrawlerImpl;

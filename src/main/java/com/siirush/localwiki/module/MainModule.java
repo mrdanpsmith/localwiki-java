@@ -6,8 +6,11 @@ import com.siirush.localwiki.binding.annotation.Encoding;
 import com.siirush.localwiki.configuration.LocalwikiConfiguration;
 import com.siirush.localwiki.configuration.LocalwikiConfigurationProvider;
 import com.siirush.localwiki.configuration.binding.annotation.ConfigurationFilePath;
+import com.siirush.localwiki.search.module.SearchModule;
 import com.siirush.localwiki.service.SaveService;
 import com.siirush.localwiki.service.SaveServiceImpl;
+import com.siirush.localwiki.servlet.module.ServletModule;
+import com.siirush.localwiki.util.module.UtilModule;
 
 public class MainModule extends AbstractModule {
 	@Override

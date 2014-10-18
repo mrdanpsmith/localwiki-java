@@ -1,4 +1,4 @@
-package com.siirush.localwiki.module;
+package com.siirush.localwiki.util.module;
 
 import com.google.inject.AbstractModule;
 import com.siirush.localwiki.util.StringUtil;
