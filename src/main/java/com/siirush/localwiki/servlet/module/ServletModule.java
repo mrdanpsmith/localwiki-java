@@ -1,4 +1,4 @@
-package com.siirush.localwiki.module;
+package com.siirush.localwiki.servlet.module;
 
 import com.siirush.localwiki.provider.GsonMessageBodyReader;
 import com.siirush.localwiki.provider.GsonMessageBodyWriter;
