@@ -43,6 +43,7 @@ public class LocalwikiConfiguration {
 	}
 	
 	public static class Server {
+		private SearchIndex searchIndex = new SearchIndex();
 		private Integer port;
 
 		public Integer getPort() {
@@ -50,6 +51,30 @@ public class LocalwikiConfiguration {
 		}
 		public void setPort(Integer port) {
 			this.port = port;
+		}
+		public SearchIndex getSearchIndex() {
+			return searchIndex;
+		}
+		public void setSearchIndex(SearchIndex searchIndex) {
+			this.searchIndex = searchIndex;
+		}
+
+		public static class SearchIndex {
+			private String filePattern;
+			private Integer maxDepth;
+			
+			public String getFilePattern() {
+				return filePattern;
+			}
+			public void setFilePattern(String filePattern) {
+				this.filePattern = filePattern;
+			}
+			public Integer getMaxDepth() {
+				return maxDepth;
+			}
+			public void setMaxDepth(Integer maxDepth) {
+				this.maxDepth = maxDepth;
+			}
 		}
 	}
 }

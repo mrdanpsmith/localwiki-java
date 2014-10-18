@@ -18,20 +18,23 @@ import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopScoreDocCollector;
-import org.apache.lucene.store.Directory;
+
+import com.siirush.localwiki.search.index.LuceneIndex;
 
 public class LuceneQueryEngineImpl implements LuceneQueryEngine {
 	private final Logger logger;
+	private final LuceneIndex luceneIndex;
 	
 	@Inject
-	public LuceneQueryEngineImpl(Logger logger) {
+	public LuceneQueryEngineImpl(Logger logger, LuceneIndex luceneIndex) {
 		this.logger = logger;
+		this.luceneIndex = luceneIndex;
 	}
 	
-	public List<String> search(Directory index, String query) {
+	public List<String> search(String query) {
 		logger.info("Search query: " + query);
 		try {
-			IndexReader reader = DirectoryReader.open(index);
+			IndexReader reader = DirectoryReader.open(luceneIndex.getDirectory());
 			IndexSearcher searcher = new IndexSearcher(reader);
 			
 			TopScoreDocCollector collector = TopScoreDocCollector.create(1000, true);

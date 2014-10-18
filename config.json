@@ -5,7 +5,11 @@
 		"apiDir": "api"
 	},
 	"server": {
-		"port": 8080
+		"port": 8080,
+		"searchIndex": {
+			"filePattern": ".*\\.md",
+			"maxDepth": 0
+		}
 	},
 	"page": {
 		"home": "README.md",
