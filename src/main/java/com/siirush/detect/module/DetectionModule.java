@@ -1,4 +1,4 @@
-package com.siirush.localwiki.module;
+package com.siirush.detect.module;
 
 import org.reflections.Reflections;
 import org.reflections.scanners.MethodAnnotationsScanner;

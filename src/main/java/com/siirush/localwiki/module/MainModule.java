@@ -1,6 +1,7 @@
 package com.siirush.localwiki.module;
 
 import com.google.inject.AbstractModule;
+import com.siirush.detect.module.DetectionModule;
 import com.siirush.localwiki.binding.annotation.Encoding;
 import com.siirush.localwiki.configuration.LocalwikiConfiguration;
 import com.siirush.localwiki.configuration.LocalwikiConfigurationProvider;
