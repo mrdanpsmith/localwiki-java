@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
+import javax.inject.Provider;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -21,17 +22,17 @@ public class LuceneFileCrawlerImpl implements LuceneCrawler {
 	private final Logger logger;
 	private final String encoding;
 	private final IndexWriterConfig config;
-	private final FileCrawler fileCrawler;
+	private final Provider<FileCrawler> fileCrawlerProvider;
 	
 	@Inject
 	public LuceneFileCrawlerImpl(Logger logger, 
 								@Encoding String encoding, 
-								IndexWriterConfig config, 
-								FileCrawler fileCrawler) {
+								IndexWriterConfig config,
+								Provider<FileCrawler> fileCrawlerProvider) {
 		this.logger = logger;
 		this.encoding = encoding;
 		this.config = config;
-		this.fileCrawler = fileCrawler;
+		this.fileCrawlerProvider = fileCrawlerProvider;
 	}
 	
 	public void crawl(Directory directory) {
@@ -44,7 +45,8 @@ public class LuceneFileCrawlerImpl implements LuceneCrawler {
 
 	private void crawlFiles(Directory directory) throws IOException {
 		final IndexWriter indexWriter = new IndexWriter(directory,config);
-		fileCrawler.crawl(new FileProcessor() {
+		FileCrawler fileCrawler = fileCrawlerProvider.get();
+		fileCrawler.setFileProcessor(new FileProcessor() {
 			public void process(File file) {
 				try {
 					logger.info("Adding: " + getFilename(file));
@@ -56,6 +58,7 @@ public class LuceneFileCrawlerImpl implements LuceneCrawler {
 				}
 			}
 		});
+		fileCrawler.crawl();
 		indexWriter.close();
 	}
 	
