@@ -20,7 +20,7 @@ public class LocalwikiConfiguration {
 	public static class Path {
 		private String baseDir;
 		private String errorDir;
-		private String apiDir;
+		private String apiDir = "api";
 		
 		public String getBaseDir() {
 			return baseDir;
@@ -44,7 +44,7 @@ public class LocalwikiConfiguration {
 	
 	public static class Server {
 		private SearchIndex searchIndex = new SearchIndex();
-		private Integer port;
+		private Integer port = 8080;
 
 		public Integer getPort() {
 			return port;
@@ -60,8 +60,8 @@ public class LocalwikiConfiguration {
 		}
 
 		public static class SearchIndex {
-			private String filePattern;
-			private Integer maxDepth;
+			private String filePattern = ".*\\.md";
+			private Integer maxDepth = 0;
 			
 			public String getFilePattern() {
 				return filePattern;
